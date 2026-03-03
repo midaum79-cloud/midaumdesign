@@ -9,7 +9,7 @@
   --spacing-base: 1.5rem;
   --font-family-base: 'Noto Sans KR', sans-serif;
 
-  --header-height: 180px;
+  --header-height: 140px;
 }
 
 * {
@@ -102,6 +102,6 @@ button {
 
 .page-wrapper {
   min-height: 100vh;
-  padding-top: 180px;
+  padding-top: 140px;
   /* Offset for the fixed header */
 }
