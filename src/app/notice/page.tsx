@@ -1,4 +1,5 @@
-import Notice from "@/components/Notice/Notice";
+import { getAllNotices } from "@/lib/noticeLoader";
+import NoticeBoard from "@/components/Notice/NoticeBoard";
 
 export const metadata = {
     title: "Notice | 미다움 디자인",
@@ -6,9 +7,11 @@ export const metadata = {
 };
 
 export default function NoticePage() {
+    const notices = getAllNotices();
+
     return (
         <main className="page-wrapper">
-            <Notice />
+            <NoticeBoard notices={notices} />
         </main>
     );
 }
