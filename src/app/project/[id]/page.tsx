@@ -10,7 +10,6 @@ const getProjectData = (id: string) => {
     const names = ["반포 자이 아파트", "한남 더힐", "송파 헬리오시티", "아크로 리버파크", "청담 자이", "마포 래미안 푸르지오"];
     const sizes = ["30평대", "40평대", "50평대", "60평대"];
 
-    // Simulate 24 projects
     const allProjects = Array.from({ length: 24 }, (_, i) => ({
         id: (i + 1).toString(),
         title: names[i % names.length],
@@ -24,8 +23,9 @@ const getProjectData = (id: string) => {
     return allProjects.find(p => p.id === id);
 };
 
-export default function ProjectDetail({ params }: { params: { id: string } }) {
-    const project = getProjectData(params.id);
+export default async function ProjectDetail({ params }: { params: Promise<{ id: string }> }) {
+    const { id } = await params;
+    const project = getProjectData(id);
 
     if (!project) {
         notFound();
