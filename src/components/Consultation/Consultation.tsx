@@ -5,12 +5,12 @@ import { MapPin, Phone, Mail } from "lucide-react";
 
 export default function Consultation() {
     return (
-        <section id="contact" className={`section ${styles.consultation}`}>
+        <section id="estimate" className={`section ${styles.consultation}`}>
             <div className={`container ${styles.wrapper}`}>
                 <div className={styles.formSection}>
-                    <h2 className={`text-h2 ${styles.title}`}>Get In Touch</h2>
+                    <h2 className={`text-h2 ${styles.title}`}>Online Estimate</h2>
                     <p className={`text-body ${styles.desc}`}>
-                        단순한 정보 입력만으로, 미다움의 디자인 여정이 시작됩니다.
+                        텍스트 입력 한 번으로, 미다움 전문가와의 1:1 맞춤 견적 상담이 시작됩니다.
                     </p>
                     <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
                         <div className={styles.formGroup}>
@@ -38,29 +38,6 @@ export default function Consultation() {
                             상담 신청하기
                         </button>
                     </form>
-                </div>
-
-                <div className={styles.infoSection}>
-                    <div className={styles.mapContainer}>
-                        {/* Placeholder for iframe Google Map */}
-                        <div className={styles.mapPlaceholder}>
-                            Google Map Embed
-                        </div>
-                    </div>
-                    <div className={styles.contactDetails}>
-                        <div className={styles.detailItem}>
-                            <MapPin size={20} />
-                            <span>인천광역시 계양구 아나지로 384, B101</span>
-                        </div>
-                        <div className={styles.detailItem}>
-                            <Phone size={20} />
-                            <span>010-5685-0850</span>
-                        </div>
-                        <div className={styles.detailItem}>
-                            <Mail size={20} />
-                            <span>midaum79@naver.com</span>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>

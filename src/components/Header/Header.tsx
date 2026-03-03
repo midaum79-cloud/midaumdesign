@@ -3,11 +3,13 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 import styles from "./Header.module.css";
 
 export default function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
+    const pathname = usePathname();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -32,11 +34,11 @@ export default function Header() {
                     />
                 </Link>
                 <ul className={styles.menuList}>
-                    <li><Link href="/" className={styles.menuItem}>Home</Link></li>
-                    <li><Link href="#portfolio" className={styles.menuItem}>Portfolio</Link></li>
-                    <li><Link href="#about" className={styles.menuItem}>About</Link></li>
-                    <li><Link href="#process" className={styles.menuItem}>Process</Link></li>
-                    <li><Link href="#contact" className={styles.menuItem}>Contact</Link></li>
+                    <li><Link href="/about" className={`${styles.menuItem} ${pathname === '/about' ? styles.active : ''}`}>About</Link></li>
+                    <li><Link href="/project" className={`${styles.menuItem} ${pathname === '/project' ? styles.active : ''}`}>Project</Link></li>
+                    <li><Link href="/contact" className={`${styles.menuItem} ${pathname === '/contact' ? styles.active : ''}`}>Contact</Link></li>
+                    <li><Link href="/estimate" className={`${styles.menuItem} ${pathname === '/estimate' ? styles.active : ''}`}>견적문의</Link></li>
+                    <li><Link href="/notice" className={`${styles.menuItem} ${pathname === '/notice' ? styles.active : ''}`}>Notice</Link></li>
                 </ul>
                 <button className={styles.mobileMenuBtn} aria-label="Menu">
                     <Menu size={24} />

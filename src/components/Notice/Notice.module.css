@@ -1,0 +1,160 @@
+.noticeSection {
+    padding: 120px 0;
+    background-color: var(--color-white);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-black);
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    font-family: var(--font-family-secondary);
+}
+
+.subtitle {
+    font-size: 1.125rem;
+    color: var(--color-dark-gray);
+    font-weight: 300;
+}
+
+.board {
+    border-top: 2px solid var(--color-black);
+    width: 100%;
+}
+
+.boardHeader {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--color-dark-gray);
+    font-weight: 500;
+    color: var(--color-black);
+    text-align: center;
+}
+
+.colNumber {
+    flex: 0 0 80px;
+}
+
+.colTitle {
+    flex: 1;
+}
+
+.colDate {
+    flex: 0 0 120px;
+}
+
+.boardList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.boardItem {
+    display: flex;
+    align-items: center;
+    padding: 24px 0;
+    border-bottom: 1px solid #E5E5E5;
+    text-align: center;
+    color: var(--color-dark-gray);
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.boardItem:hover {
+    background-color: var(--color-light-gray);
+}
+
+.colTitleContent {
+    flex: 1;
+    text-align: left;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.itemTitle {
+    color: var(--color-black);
+    font-size: 1.05rem;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+.boardItem:hover .itemTitle {
+    color: var(--color-gold);
+}
+
+.newBadge {
+    background-color: var(--color-gold);
+    color: white;
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.pageBtn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #E5E5E5;
+    background: transparent;
+    color: var(--color-dark-gray);
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.pageBtn.active {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    border-color: var(--color-black);
+}
+
+@media (max-width: 768px) {
+    .boardHeader {
+        display: none;
+    }
+
+    .boardItem {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 10px;
+        gap: 12px;
+    }
+
+    .colNumber {
+        display: none;
+    }
+
+    .colTitleContent {
+        padding: 0;
+    }
+
+    .colDate {
+        font-size: 0.875rem;
+        color: #888;
+        text-align: left;
+    }
+}
