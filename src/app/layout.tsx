@@ -55,9 +55,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    // Google Search Console & Naver Search Advisor 인증 코드 - 추후 등록 후 여기에 추가
-    // google: "xxxxxx",
-    // other: { "naver-site-verification": "xxxxxx" },
+    google: "tpKVaSgTsnloFIugT0m_6Rp-uIyOPoz1DUZrq2kqQ6Q",
   },
 };
 
