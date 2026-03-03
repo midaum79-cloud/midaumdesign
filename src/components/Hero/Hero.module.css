@@ -95,39 +95,42 @@
     paint-order: stroke fill;
 }
 
-/* Mobile shortcut buttons */
+/* Shortcut buttons */
 .mobileLinks {
-    display: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-top: 2rem;
 }
 
 @media (max-width: 768px) {
     .mobileLinks {
-        display: flex;
         flex-direction: column;
-        align-items: center;
         gap: 0.6rem;
-        margin-top: 2rem;
     }
+}
 
-    .mobileLink {
-        display: flex;
-        align-items: center;
-        gap: 0.35rem;
-        padding: 0.5rem 0.9rem;
-        border-radius: 20px;
-        background-color: rgba(255, 255, 255, 0.15);
-        backdrop-filter: blur(8px);
-        color: #fff;
-        text-decoration: none;
-        font-size: 0.8rem;
-        font-weight: 500;
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        transition: background-color 0.2s ease;
-        text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
-        filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
-    }
+.mobileLink {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.5rem 0.9rem;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: background-color 0.2s ease;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
+}
 
-    .mobileLink:active {
-        background-color: rgba(255, 255, 255, 0.3);
-    }
+.mobileLink:active {
+    background-color: rgba(255, 255, 255, 0.3);
+}
 }
