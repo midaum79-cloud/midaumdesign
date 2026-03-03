@@ -1,0 +1,89 @@
+import fs from "fs";
+import path from "path";
+
+export interface ProjectInfo {
+    id: string;
+    title: string;
+    size: string;
+    description: string;
+    thumb: string;
+    imageCount: number;
+}
+
+const PORTFOLIO_DIR = path.join(process.cwd(), "public", "portfolio");
+
+/** Get all projects by scanning the portfolio folder */
+export function getAllProjects(): ProjectInfo[] {
+    if (!fs.existsSync(PORTFOLIO_DIR)) return [];
+
+    const folders = fs
+        .readdirSync(PORTFOLIO_DIR)
+        .filter((f) => {
+            const fullPath = path.join(PORTFOLIO_DIR, f);
+            return fs.statSync(fullPath).isDirectory();
+        })
+        .sort((a, b) => Number(a) - Number(b));
+
+    return folders
+        .map((folder) => {
+            const infoPath = path.join(PORTFOLIO_DIR, folder, "info.json");
+            if (!fs.existsSync(infoPath)) return null;
+
+            try {
+                const raw = fs.readFileSync(infoPath, "utf-8");
+                const info = JSON.parse(raw);
+
+                // Count numbered image files (1.png, 2.jpg, etc.)
+                const files = fs.readdirSync(path.join(PORTFOLIO_DIR, folder));
+                const imageFiles = files.filter((f) => /^\d+\.(png|jpg|jpeg|webp)$/i.test(f));
+
+                return {
+                    id: folder,
+                    title: info.title || "Untitled",
+                    size: info.size || "",
+                    description: info.description || "",
+                    thumb: `/portfolio/${folder}/thumb.png`,
+                    imageCount: imageFiles.length,
+                };
+            } catch {
+                return null;
+            }
+        })
+        .filter(Boolean) as ProjectInfo[];
+}
+
+/** Get a single project by ID */
+export function getProjectById(id: string): (ProjectInfo & { images: string[] }) | null {
+    const projectDir = path.join(PORTFOLIO_DIR, id);
+    if (!fs.existsSync(projectDir)) return null;
+
+    const infoPath = path.join(projectDir, "info.json");
+    if (!fs.existsSync(infoPath)) return null;
+
+    try {
+        const raw = fs.readFileSync(infoPath, "utf-8");
+        const info = JSON.parse(raw);
+
+        const files = fs.readdirSync(projectDir);
+        const imageFiles = files
+            .filter((f) => /^\d+\.(png|jpg|jpeg|webp)$/i.test(f))
+            .sort((a, b) => {
+                const numA = parseInt(a.split(".")[0]);
+                const numB = parseInt(b.split(".")[0]);
+                return numA - numB;
+            })
+            .map((f) => `/portfolio/${id}/${f}`);
+
+        return {
+            id,
+            title: info.title || "Untitled",
+            size: info.size || "",
+            description: info.description || "",
+            thumb: `/portfolio/${id}/thumb.png`,
+            imageCount: imageFiles.length,
+            images: imageFiles,
+        };
+    } catch {
+        return null;
+    }
+}

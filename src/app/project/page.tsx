@@ -1,4 +1,5 @@
-import Portfolio from "@/components/Portfolio/Portfolio";
+import { getAllProjects } from "@/lib/portfolioLoader";
+import PortfolioGrid from "@/components/Portfolio/PortfolioGrid";
 
 export const metadata = {
     title: "Project | 미다움 디자인",
@@ -6,9 +7,11 @@ export const metadata = {
 };
 
 export default function ProjectPage() {
+    const projects = getAllProjects();
+
     return (
         <main className="page-wrapper">
-            <Portfolio />
+            <PortfolioGrid projects={projects} />
         </main>
     );
 }
