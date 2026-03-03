@@ -13,7 +13,7 @@
 
 .transparent {
     background-color: transparent;
-    color: var(--color-white);
+    color: var(--color-black);
 }
 
 .solid {
