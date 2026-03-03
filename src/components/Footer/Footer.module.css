@@ -1,50 +1,21 @@
 .footer {
     background-color: var(--color-bg-light);
-    padding: 6rem 5%;
+    padding: 3rem 5%;
     border-top: 1px solid #eee;
     color: #888;
-    font-size: 0.875rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3rem;
-}
-
-.logo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    text-decoration: none;
-    color: inherit;
-}
-
-.logoSvg {
-    display: block;
-}
-
-.logoText {
-    display: flex;
-    gap: 0.25rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    font-family: var(--font-family-base);
-}
-
-.infoWrapper {
+    font-size: 0.8rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.75rem;
-    line-height: 1.6;
 }
 
 .infoRow {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
     justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
 }
 
 .infoLabel {
@@ -58,8 +29,8 @@
 
 .divider {
     color: #ccc;
-    margin: 0 0.5rem;
-    font-size: 0.8rem;
+    margin: 0 0.25rem;
+    font-size: 0.75rem;
 }
 
 .link {
@@ -74,8 +45,9 @@
 }
 
 .copyright {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: #aaa;
+    margin-top: 0.5rem;
 }
 
 @media (max-width: 768px) {
@@ -87,9 +59,5 @@
 
     .divider {
         display: none;
-    }
-
-    .infoWrapper {
-        gap: 1.5rem;
     }
 }
