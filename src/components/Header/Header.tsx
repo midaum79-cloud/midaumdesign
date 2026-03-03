@@ -21,7 +21,7 @@ export default function Header() {
     }, []);
 
     return (
-        <header className={`${styles.header} ${isScrolled ? styles.solid : styles.transparent}`}>
+        <header className={`${styles.header} ${styles.solid}`}>
             <nav className={styles.nav}>
                 <Link href="/" className={styles.logo}>
                     <Image
