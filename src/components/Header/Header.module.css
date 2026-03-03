@@ -1,0 +1,85 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    transition: all 0.4s ease;
+    padding: 0 5%;
+}
+
+.transparent {
+    background-color: transparent;
+    color: var(--color-white);
+}
+
+.solid {
+    background-color: var(--color-white);
+    color: var(--color-dark-gray);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: inherit;
+}
+
+.logoSvg {
+    display: block;
+}
+
+.logoText {
+    display: flex;
+    gap: 0.35rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    font-family: var(--font-family-base);
+}
+
+.menuList {
+    display: flex;
+    list-style: none;
+    gap: 3rem;
+}
+
+.menuItem {
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    transition: opacity 0.3s;
+}
+
+.menuItem:hover {
+    opacity: 0.7;
+}
+
+.mobileMenuBtn {
+    display: none;
+    color: inherit;
+}
+
+@media (max-width: 768px) {
+    .menuList {
+        display: none;
+    }
+
+    .mobileMenuBtn {
+        display: block;
+    }
+}

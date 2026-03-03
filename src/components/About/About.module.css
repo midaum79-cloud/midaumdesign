@@ -1,0 +1,35 @@
+.about {
+    background-color: var(--color-bg-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 15rem 5%;
+    /* very wide spacing */
+}
+
+.content {
+    max-width: 800px;
+}
+
+.title {
+    margin-bottom: 3rem;
+    color: var(--color-dark-gray);
+}
+
+.desc {
+    line-height: 2;
+    font-size: 1.25rem;
+    color: #555;
+    font-weight: 300;
+}
+
+@media (max-width: 768px) {
+    .about {
+        padding: 8rem 5%;
+    }
+
+    .desc {
+        font-size: 1.125rem;
+    }
+}

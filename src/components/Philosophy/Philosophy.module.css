@@ -1,0 +1,37 @@
+.philosophy {
+    background-color: var(--color-bg-light);
+    /* 1.5x padding naturally applied by .section, but we add more breathing room */
+    padding: 15rem 0;
+    text-align: center;
+}
+
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.title {
+    margin-bottom: 3rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-size: 1rem;
+    color: #888;
+}
+
+.heading {
+    margin-bottom: 4rem;
+    line-height: 1.4;
+}
+
+.text {
+    font-size: 1.25rem;
+    line-height: 2;
+    color: #555;
+    font-weight: 300;
+}
+
+@media (max-width: 768px) {
+    .philosophy {
+        padding: 8rem 0;
+    }
+}
