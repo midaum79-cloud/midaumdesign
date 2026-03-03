@@ -8,7 +8,8 @@ const images = [
     "/images/hero_new_1.jpg",
     "/images/hero_new_2.jpg",
     "/images/hero_new_3.jpg",
-    "/images/hero_new_4.jpg"
+    "/images/hero_new_4.jpg",
+    "/images/hero_new_5.jpg"
 ];
 
 export default function Hero() {
