@@ -6,7 +6,7 @@ export default function Footer() {
         <footer className={styles.footer}>
             <div className={styles.logo}>
                 <Image
-                    src="/images/midaum_logo.png"
+                    src="/images/midaum_logo_transparent.png"
                     alt="미다움 디자인 로고"
                     width={160}
                     height={42}

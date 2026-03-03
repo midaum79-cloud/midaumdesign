@@ -23,7 +23,7 @@ export default function Header() {
             <nav className={styles.nav}>
                 <Link href="/" className={styles.logo}>
                     <Image
-                        src="/images/midaum_logo.png"
+                        src="/images/midaum_logo_transparent.png"
                         alt="미다움 디자인 로고"
                         width={200}
                         height={52}
