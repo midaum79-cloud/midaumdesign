@@ -27,8 +27,8 @@ export default function Header() {
                     <Image
                         src="/images/midaum_logo_transparent.png"
                         alt="미다움 디자인 로고"
-                        width={450}
-                        height={117}
+                        width={300}
+                        height={78}
                         priority
                         className={styles.logoImg}
                     />
