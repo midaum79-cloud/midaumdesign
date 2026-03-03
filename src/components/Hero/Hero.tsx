@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import styles from "./Hero.module.css";
 import Image from "next/image";
+import Link from "next/link";
+import { Grid, BookOpen, Camera } from "lucide-react";
 
 const images = [
     "/images/hero_new_1.jpg",
@@ -18,7 +20,7 @@ export default function Hero() {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentImage((prev) => (prev + 1) % images.length);
-        }, 5000); // 5 seconds per slide
+        }, 5000);
         return () => clearInterval(interval);
     }, []);
 
@@ -42,6 +44,20 @@ export default function Hero() {
             <div className={styles.content}>
                 <h1 className={`${styles.title} text-h1`}>아름다움, 공간에 담다</h1>
                 <p className={styles.subtitle}>Midaum Design</p>
+                <div className={styles.mobileLinks}>
+                    <Link href="/project" className={styles.mobileLink}>
+                        <Grid size={16} />
+                        <span>포트폴리오</span>
+                    </Link>
+                    <a href="https://blog.naver.com/neuljaem" target="_blank" rel="noopener noreferrer" className={styles.mobileLink}>
+                        <BookOpen size={16} />
+                        <span>블로그</span>
+                    </a>
+                    <a href="https://www.instagram.com/midaumdesign" target="_blank" rel="noopener noreferrer" className={styles.mobileLink}>
+                        <Camera size={16} />
+                        <span>인스타그램</span>
+                    </a>
+                </div>
             </div>
         </section>
     );
