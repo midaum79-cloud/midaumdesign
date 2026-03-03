@@ -1,21 +1,17 @@
+import Image from "next/image";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
     return (
         <footer className={styles.footer}>
             <div className={styles.logo}>
-                <svg viewBox="0 0 115 60" height="24" className={styles.logoSvg} xmlns="http://www.w3.org/2000/svg">
-                    <g fill="none" strokeWidth="15" strokeLinejoin="miter" strokeMiterlimit="5">
-                        <path d="M 52.5,29.8 L 52.5,52.5 L 75,52.5 A 22.5 22.5 0 0 0 75,7.5 L 52.5,7.5" stroke="var(--color-dark-gray)" />
-                        <path d="M 7.5,-5 L 7.5,65" stroke="#C8A153" />
-                        <path d="M 7.5,-5 L 30,50 L 52.5,-5" stroke="#C8A153" />
-                        <path d="M 52.5,-5 L 52.5,30.5" stroke="#C8A153" />
-                    </g>
-                </svg>
-                <div className={styles.logoText}>
-                    <span style={{ color: '#C8A153' }}>MIDAUM</span>
-                    <span>DESIGN</span>
-                </div>
+                <Image
+                    src="/images/midaum_logo.png"
+                    alt="미다움 디자인 로고"
+                    width={160}
+                    height={42}
+                    className={styles.logoImg}
+                />
             </div>
 
             <div className={styles.infoWrapper}>

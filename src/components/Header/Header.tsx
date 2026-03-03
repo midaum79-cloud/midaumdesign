@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu } from "lucide-react";
 import styles from "./Header.module.css";
 
@@ -21,23 +22,14 @@ export default function Header() {
         <header className={`${styles.header} ${isScrolled ? styles.solid : styles.transparent}`}>
             <nav className={styles.nav}>
                 <Link href="/" className={styles.logo}>
-                    <svg viewBox="0 0 115 60" height="28" className={styles.logoSvg} xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <clipPath id="logo-clip">
-                                <rect x="0" y="0" width="115" height="60" />
-                            </clipPath>
-                        </defs>
-                        <g clipPath="url(#logo-clip)" fill="none" strokeWidth="15" strokeLinejoin="miter" strokeMiterlimit="5">
-                            <path d="M 52.5,29.8 L 52.5,52.5 L 75,52.5 A 22.5 22.5 0 0 0 75,7.5 L 52.5,7.5" stroke="currentColor" />
-                            <path d="M 7.5,-5 L 7.5,65" stroke="#C8A153" />
-                            <path d="M 7.5,-5 L 30,50 L 52.5,-5" stroke="#C8A153" />
-                            <path d="M 52.5,-5 L 52.5,30.5" stroke="#C8A153" />
-                        </g>
-                    </svg>
-                    <div className={styles.logoText}>
-                        <span style={{ color: '#C8A153' }}>MIDAUM</span>
-                        <span style={{ color: 'currentColor' }}>DESIGN</span>
-                    </div>
+                    <Image
+                        src="/images/midaum_logo.png"
+                        alt="미다움 디자인 로고"
+                        width={200}
+                        height={52}
+                        priority
+                        className={styles.logoImg}
+                    />
                 </Link>
                 <ul className={styles.menuList}>
                     <li><Link href="/" className={styles.menuItem}>Home</Link></li>
