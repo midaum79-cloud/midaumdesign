@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import styles from "./Hero.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import { Grid, BookOpen, Camera } from "lucide-react";
+import { Grid, BookOpen, Camera, Youtube } from "lucide-react";
 
 const images = [
     "/images/hero_new_1.jpg",
@@ -56,6 +56,10 @@ export default function Hero() {
                     <a href="https://www.instagram.com/midaumdesign" target="_blank" rel="noopener noreferrer" className={styles.mobileLink}>
                         <Camera size={16} />
                         <span>인스타그램</span>
+                    </a>
+                    <a href="https://www.youtube.com/@CarpenterUncle" target="_blank" rel="noopener noreferrer" className={styles.mobileLink}>
+                        <Youtube size={16} />
+                        <span>유튜브</span>
                     </a>
                 </div>
             </div>
