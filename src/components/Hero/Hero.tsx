@@ -5,10 +5,10 @@ import styles from "./Hero.module.css";
 import Image from "next/image";
 
 const images = [
-    "/images/living_room_hero.png",
-    "/images/kitchen_sleek_white.png",
-    "/images/living_room_texture.png",
-    "/images/kitchen_warm_wood.png"
+    "/images/hero_new_1.jpg",
+    "/images/hero_new_2.jpg",
+    "/images/hero_new_3.jpg",
+    "/images/hero_new_4.jpg"
 ];
 
 export default function Hero() {
