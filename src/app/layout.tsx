@@ -4,6 +4,7 @@ import Script from "next/script";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import ScrollToTop from "@/components/ScrollToTop/ScrollToTop";
+import MobileBottomBar from "@/components/MobileBottomBar/MobileBottomBar";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.midaum.co.kr"),
@@ -106,6 +107,7 @@ export default function RootLayout({
         <Header />
         {children}
         <ScrollToTop />
+        <MobileBottomBar />
         <Footer />
       </body>
     </html>
