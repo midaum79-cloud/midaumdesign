@@ -18,8 +18,9 @@
 
 @media (max-width: 768px) {
     .footer {
-        font-size: 0.55rem;
+        font-size: 0.7rem;
         padding: 0.4rem 3%;
         gap: 0.3rem;
+        color: #333;
     }
 }
