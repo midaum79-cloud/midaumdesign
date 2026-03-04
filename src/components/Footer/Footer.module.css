@@ -19,7 +19,8 @@
 @media (max-width: 768px) {
     .footer {
         font-size: 0.7rem;
-        padding: 0.4rem 3%;
+        padding: 0.6rem 3% 4.5rem 3%;
+        /* 하단 배너 높이만큼 padding-bottom 추가 */
         gap: 0.3rem;
         color: #333;
     }
