@@ -29,3 +29,10 @@
 .btn:hover {
     background-color: rgba(0, 0, 0, 0.85);
 }
+
+@media (max-width: 768px) {
+    .btn {
+        bottom: 5rem;
+        right: 1.2rem;
+    }
+}
