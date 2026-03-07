@@ -44,7 +44,7 @@ export function getAllProjects(): ProjectInfo[] {
                     size: info.size || "",
                     description: info.description || "",
                     category: info.category || "residential",
-                    thumb: `/portfolio/${folder.normalize("NFC")}/thumb.webp`,
+                    thumb: `/portfolio/${folder}/thumb.webp`,
                     imageCount: imageFiles.length,
                 };
             } catch {
