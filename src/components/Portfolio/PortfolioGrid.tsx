@@ -11,22 +11,42 @@ interface ProjectInfo {
     title: string;
     size: string;
     description: string;
+    category: string;
     thumb: string;
     imageCount: number;
 }
+
+type CategoryFilter = "all" | "residential" | "commercial";
+
+const CATEGORIES: { key: CategoryFilter; label: string }[] = [
+    { key: "all", label: "전체" },
+    { key: "residential", label: "주거공간" },
+    { key: "commercial", label: "상업공간" },
+];
 
 const ITEMS_PER_PAGE = 12;
 
 export default function PortfolioGrid({ projects }: { projects: ProjectInfo[] }) {
     const [currentPage, setCurrentPage] = useState(1);
+    const [activeCategory, setActiveCategory] = useState<CategoryFilter>("all");
 
-    const totalPages = Math.ceil(projects.length / ITEMS_PER_PAGE);
+    const filteredProjects =
+        activeCategory === "all"
+            ? projects
+            : projects.filter((p) => p.category === activeCategory);
+
+    const totalPages = Math.ceil(filteredProjects.length / ITEMS_PER_PAGE);
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-    const currentProjects = projects.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+    const currentProjects = filteredProjects.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
     const handlePageChange = (page: number) => {
         setCurrentPage(page);
         window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    const handleCategoryChange = (category: CategoryFilter) => {
+        setActiveCategory(category);
+        setCurrentPage(1);
     };
 
     return (
@@ -36,6 +56,24 @@ export default function PortfolioGrid({ projects }: { projects: ProjectInfo[] })
                 <p className={`text-body ${styles.desc}`}>
                     단순함 속에 깃든 깊이, 미다움의 시공사례를 확인하세요.
                 </p>
+            </div>
+
+            {/* Category Filter Tabs */}
+            <div className={styles.filterBar}>
+                {CATEGORIES.map((cat) => (
+                    <button
+                        key={cat.key}
+                        className={`${styles.filterTab} ${activeCategory === cat.key ? styles.filterTabActive : ""}`}
+                        onClick={() => handleCategoryChange(cat.key)}
+                    >
+                        {cat.label}
+                        <span className={styles.filterCount}>
+                            {cat.key === "all"
+                                ? projects.length
+                                : projects.filter((p) => p.category === cat.key).length}
+                        </span>
+                    </button>
+                ))}
             </div>
 
             <div className={styles.grid}>

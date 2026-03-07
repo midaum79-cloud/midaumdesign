@@ -14,6 +14,54 @@
     opacity: 0.8;
 }
 
+/* Category Filter Tabs */
+.filterBar {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 3rem;
+    padding: 0 5%;
+}
+
+.filterTab {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 100px;
+    background: transparent;
+    color: var(--color-dark-gray);
+    font-size: 0.95rem;
+    font-family: var(--font-family-base);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-weight: 400;
+}
+
+.filterTab:hover {
+    border-color: var(--color-dark-gray);
+    background-color: #fafafa;
+}
+
+.filterTabActive {
+    background-color: var(--color-dark-gray);
+    border-color: var(--color-dark-gray);
+    color: var(--color-white);
+    font-weight: 500;
+}
+
+.filterTabActive:hover {
+    background-color: var(--color-dark-gray);
+    border-color: var(--color-dark-gray);
+}
+
+.filterCount {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    font-weight: 400;
+}
+
 /* 3x4 Grid Layout */
 .grid {
     display: grid;

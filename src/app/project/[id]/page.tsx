@@ -7,7 +7,8 @@ import { getProjectById } from "@/lib/portfolioLoader";
 
 export default async function ProjectDetailPage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params;
-    const project = getProjectById(id);
+    const decodedId = decodeURIComponent(id);
+    const project = getProjectById(decodedId);
 
     if (!project) {
         notFound();

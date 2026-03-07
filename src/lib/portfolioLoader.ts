@@ -6,6 +6,7 @@ export interface ProjectInfo {
     title: string;
     size: string;
     description: string;
+    category: string;
     thumb: string;
     imageCount: number;
 }
@@ -22,7 +23,7 @@ export function getAllProjects(): ProjectInfo[] {
             const fullPath = path.join(PORTFOLIO_DIR, f);
             return fs.statSync(fullPath).isDirectory();
         })
-        .sort((a, b) => Number(a) - Number(b));
+        .sort((a, b) => a.localeCompare(b, 'ko'));
 
     return folders
         .map((folder) => {
@@ -38,11 +39,12 @@ export function getAllProjects(): ProjectInfo[] {
                 const imageFiles = files.filter((f) => /^\d+\.(png|jpg|jpeg|webp)$/i.test(f));
 
                 return {
-                    id: folder,
+                    id: folder.normalize("NFC"),
                     title: info.title || "Untitled",
                     size: info.size || "",
                     description: info.description || "",
-                    thumb: `/portfolio/${folder}/thumb.png`,
+                    category: info.category || "residential",
+                    thumb: `/portfolio/${folder.normalize("NFC")}/thumb.webp`,
                     imageCount: imageFiles.length,
                 };
             } catch {
@@ -54,8 +56,22 @@ export function getAllProjects(): ProjectInfo[] {
 
 /** Get a single project by ID */
 export function getProjectById(id: string): (ProjectInfo & { images: string[] }) | null {
-    const projectDir = path.join(PORTFOLIO_DIR, id);
-    if (!fs.existsSync(projectDir)) return null;
+    // Normalize Unicode to handle macOS NFD vs URL NFC mismatch
+    const normalizedId = id.normalize("NFC");
+
+    // Find the actual folder by comparing normalized names
+    const folders = fs.readdirSync(PORTFOLIO_DIR).filter(f => {
+        const fullPath = path.join(PORTFOLIO_DIR, f);
+        return fs.statSync(fullPath).isDirectory();
+    });
+
+    const actualFolder = folders.find(
+        (f) => f.normalize("NFC") === normalizedId
+    );
+
+    if (!actualFolder) return null;
+    const projectDir = path.join(PORTFOLIO_DIR, actualFolder);
+    if (!fs.statSync(projectDir).isDirectory()) return null;
 
     const infoPath = path.join(projectDir, "info.json");
     if (!fs.existsSync(infoPath)) return null;
@@ -72,14 +88,15 @@ export function getProjectById(id: string): (ProjectInfo & { images: string[] })
                 const numB = parseInt(b.split(".")[0]);
                 return numA - numB;
             })
-            .map((f) => `/portfolio/${id}/${f}`);
+            .map((f) => `/portfolio/${actualFolder}/${f}`);
 
         return {
-            id,
+            id: normalizedId,
             title: info.title || "Untitled",
             size: info.size || "",
             description: info.description || "",
-            thumb: `/portfolio/${id}/thumb.png`,
+            category: info.category || "residential",
+            thumb: `/portfolio/${actualFolder}/thumb.webp`,
             imageCount: imageFiles.length,
             images: imageFiles,
         };
