@@ -1,10 +1,12 @@
 import { MetadataRoute } from "next";
+import { getAllProjects } from "@/lib/portfolioLoader";
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = "https://www.midaum.co.kr";
     const now = new Date();
+    const projects = getAllProjects();
 
-    return [
+    const staticPages: MetadataRoute.Sitemap = [
         {
             url: baseUrl,
             lastModified: now,
@@ -35,5 +37,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: "yearly",
             priority: 0.9,
         },
+        {
+            url: `${baseUrl}/project`,
+            lastModified: now,
+            changeFrequency: "monthly",
+            priority: 0.8,
+        },
     ];
+
+    const projectPages: MetadataRoute.Sitemap = projects.map((project) => ({
+        url: `${baseUrl}/project/${encodeURIComponent(project.id)}`,
+        lastModified: now,
+        changeFrequency: "monthly",
+        priority: 0.8,
+    }));
+
+    return [...staticPages, ...projectPages];
 }

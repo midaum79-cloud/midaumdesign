@@ -9,19 +9,19 @@ import MobileBottomBar from "@/components/MobileBottomBar/MobileBottomBar";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.midaum.co.kr"),
   title: {
-    default: "미다움 디자인 | 인천·김포·강서구 프리미엄 인테리어",
-    template: "%s | 미다움 디자인",
+    default: "미다움디자인 | 인천·김포·강서구 프리미엄 인테리어",
+    template: "%s | 미다움디자인",
   },
-  description: "인천·김포·서울 강서구 전문 인테리어 디자인 회사 미다움 디자인입니다. 고급스러운 미니멀리즘 철학에 기반한 주거·상업공간 설계 및 시공. 대표 김명준. 무료 상담 신청 가능.",
+  description: "인천·김포·서울 강서구 전문 인테리어 디자인 회사 미다움디자인입니다. 고급스러운 미니멀리즘 철학에 기반한 주거·상업공간 설계 및 시공. 대표 김명준. 무료 상담 신청 가능.",
   keywords: [
-    "미다움 디자인", "미다움", "인천 인테리어", "인천 인테리어 업체", "계양구 인테리어",
+    "미다움디자인", "미다움 디자인", "미다움", "인천 인테리어", "인천 인테리어 업체", "계양구 인테리어",
     "김포 인테리어", "강서구 인테리어", "은평구 인테리어", "서울 인테리어",
     "프리미엄 인테리어", "미니멀 인테리어", "주거 인테리어", "아파트 인테리어",
     "인테리어 디자인", "공간 디자인", "Midaum Design"
   ],
   authors: [{ name: "김명준", url: "https://www.midaum.co.kr" }],
-  creator: "미다움 디자인",
-  publisher: "미다움 디자인",
+  creator: "미다움디자인",
+  publisher: "미다움디자인",
   formatDetection: { telephone: true, email: true, address: true },
   alternates: {
     canonical: "https://www.midaum.co.kr",
@@ -30,8 +30,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ko_KR",
     url: "https://www.midaum.co.kr",
-    siteName: "미다움 디자인",
-    title: "미다움 디자인 | 인천·김포·강서구 프리미엄 인테리어",
+    siteName: "미다움디자인",
+    title: "미다움디자인 | 인천·김포·강서구 프리미엄 인테리어",
     description: "인천·김포·서울 강서구 전문 인테리어 디자인 업체. 고급스러운 미니멀 공간 설계 및 시공.",
     images: [
       {
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "미다움 디자인 | 인천·김포·강서구 프리미엄 인테리어",
+    title: "미다움디자인 | 인천·김포·강서구 프리미엄 인테리어",
     description: "인천·김포·서울 강서구 전문 인테리어 디자인 업체. 고급스러운 미니멀 공간 설계 및 시공.",
     images: ["/images/living_room_hero.png"],
   },
@@ -69,8 +69,8 @@ export const metadata: Metadata = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "InteriorDesigner",
-  "name": "미다움 디자인",
-  "alternateName": "Midaum Design",
+  "name": "미다움디자인",
+  "alternateName": ["미다움 디자인", "미다움", "Midaum Design"],
   "url": "https://www.midaum.co.kr",
   "logo": "https://www.midaum.co.kr/images/living_room_hero.png",
   "description": "인천·김포·서울 강서구 전문 인테리어 디자인 업체. 고급스러운 미니멀 공간 설계 및 시공.",
