@@ -50,10 +50,10 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                 </div>
 
                 <div className={styles.imageGrid}>
-                    {project.images.map((src, index) => (
-                        <div key={index} className={styles.imageWrapper}>
+                    {project.images.map((image, index) => (
+                        <div key={index} className={`${styles.imageWrapper} ${image.orientation === 'portrait' ? styles.portrait : styles.landscape}`}>
                             <Image
-                                src={src}
+                                src={image.src}
                                 alt={`${project.title} 시공사진 ${index + 1}`}
                                 fill
                                 className={styles.image}

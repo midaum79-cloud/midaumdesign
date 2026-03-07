@@ -103,8 +103,15 @@
     position: relative;
     width: 100%;
     background-color: #f9f9f9;
-    aspect-ratio: 4 / 3;
     overflow: hidden;
+}
+
+.landscape {
+    aspect-ratio: 4 / 3;
+}
+
+.portrait {
+    aspect-ratio: 3 / 4;
 }
 
 .image {

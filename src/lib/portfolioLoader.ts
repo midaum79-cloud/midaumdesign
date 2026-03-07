@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import sizeOf from "image-size";
 
 export interface ProjectInfo {
     id: string;
@@ -55,7 +56,7 @@ export function getAllProjects(): ProjectInfo[] {
 }
 
 /** Get a single project by ID */
-export function getProjectById(id: string): (ProjectInfo & { images: string[] }) | null {
+export function getProjectById(id: string): (ProjectInfo & { images: { src: string; orientation: 'landscape' | 'portrait' }[] }) | null {
     // Normalize Unicode to handle macOS NFD vs URL NFC mismatch
     const normalizedId = id.normalize("NFC");
 
@@ -88,7 +89,23 @@ export function getProjectById(id: string): (ProjectInfo & { images: string[] })
                 const numB = parseInt(b.split(".")[0]);
                 return numA - numB;
             })
-            .map((f) => `/portfolio/${actualFolder}/${f}`);
+            .map((f) => {
+                const fullPath = path.join(projectDir, f);
+                let orientation: 'landscape' | 'portrait' = 'landscape';
+                try {
+                    const buffer = fs.readFileSync(fullPath);
+                    const dimensions = sizeOf(buffer);
+                    if (dimensions.height && dimensions.width && dimensions.height > dimensions.width) {
+                        orientation = 'portrait';
+                    }
+                } catch (e) {
+                    console.error(`Error reading dimensions for ${f}`, e);
+                }
+                return {
+                    src: `/portfolio/${actualFolder}/${f}`,
+                    orientation
+                };
+            });
 
         return {
             id: normalizedId,
