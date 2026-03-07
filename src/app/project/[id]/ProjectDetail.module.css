@@ -102,22 +102,13 @@
 .imageWrapper {
     position: relative;
     width: 100%;
-    background-color: #eaeaea;
-}
-
-/* Simulate natural aspect ratios for the 15 images. 
-   We alternate between landscape and portrait. */
-.imageWrapper:nth-child(even) {
+    background-color: #f9f9f9;
     aspect-ratio: 16 / 9;
-}
-
-.imageWrapper:nth-child(odd) {
-    aspect-ratio: 4 / 3;
+    overflow: hidden;
 }
 
 .image {
-    object-fit: contain;
-    background-color: var(--color-white);
+    object-fit: cover;
 }
 
 @media (max-width: 768px) {
