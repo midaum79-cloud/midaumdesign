@@ -78,15 +78,15 @@ const localBusinessSchema = {
   "email": "midaum79@naver.com",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "아나지로 384, B101",
-    "addressLocality": "계양구",
-    "addressRegion": "인천광역시",
+    "streetAddress": "김포한강9로75번길 66, 5층 505-유93호",
+    "addressLocality": "김포시",
+    "addressRegion": "경기도",
     "addressCountry": "KR"
   },
   "areaServed": ["인천광역시", "김포시", "서울 강서구", "서울 은평구"],
   "priceRange": "₩₩₩",
   "openingHours": "Mo-Sa 09:00-18:00",
-  "hasMap": "https://www.google.com/maps/search/인천+계양구+아나지로+384",
+  "hasMap": "https://www.google.com/maps/search/경기도+김포시+김포한강9로75번길+66",
 };
 
 export default function RootLayout({

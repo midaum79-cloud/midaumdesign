@@ -42,7 +42,8 @@ export default function Hero() {
             ))}
             <div className={styles.overlay}></div>
             <div className={styles.content}>
-                <h1 className={`${styles.title} text-h1`}>아름다움, 공간에 담다</h1>
+                <h1 className="sr-only">미다움디자인 - 인천·김포·강서구 프리미엄 인테리어</h1>
+                <p className={`${styles.title} text-h1`}>아름다움, 공간에 담다</p>
                 <p className={styles.subtitle}>미다움 디자인</p>
                 <div className={styles.mobileLinks}>
                     <Link href="/project" className={styles.mobileLink}>

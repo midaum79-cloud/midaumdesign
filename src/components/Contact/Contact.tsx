@@ -20,7 +20,7 @@ export default function Contact() {
                         <div className={styles.card}>
                             <MapPin size={24} className={styles.icon} />
                             <h3>Address</h3>
-                            <p>인천광역시 계양구 아나지로 384, B101</p>
+                            <p>경기도 김포시 김포한강9로75번길 66, 5층 505-유93호(구래동)</p>
                         </div>
                         <div className={styles.card}>
                             <Phone size={24} className={styles.icon} />

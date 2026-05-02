@@ -4,6 +4,47 @@ import { ChevronLeft } from "lucide-react";
 import styles from "./ProjectDetail.module.css";
 import { notFound } from "next/navigation";
 import { getProjectById } from "@/lib/portfolioLoader";
+import type { Metadata } from "next";
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+    const { id } = await params;
+    const decodedId = decodeURIComponent(id);
+    const project = getProjectById(decodedId);
+
+    if (!project) {
+        return {
+            title: "Project Not Found | 미다움 디자인",
+        };
+    }
+
+    const title = `${project.title} | 미다움 디자인 포트폴리오`;
+    const description = project.description || `미다움 디자인의 ${project.title} 인테리어 시공 사례입니다.`;
+
+    return {
+        title,
+        description,
+        openGraph: {
+            title,
+            description,
+            images: [
+                {
+                    url: project.thumb,
+                    width: 1200,
+                    height: 630,
+                    alt: project.title,
+                },
+            ],
+            type: "article",
+            url: `https://www.midaum.co.kr/project/${id}`,
+        },
+        twitter: {
+            card: "summary_large_image",
+            title,
+            description,
+            images: [project.thumb],
+        },
+    };
+}
 
 export default async function ProjectDetailPage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params;
