@@ -7,11 +7,8 @@ import Link from "next/link";
 import { Grid, BookOpen, Camera, Youtube } from "lucide-react";
 
 const images = [
-    "/images/hero_new_1.jpg",
-    "/images/hero_new_2.jpg",
-    "/images/hero_new_3.jpg",
-    "/images/hero_new_4.jpg",
-    "/images/hero_new_5.jpg"
+    "/images/clinic_banner.png",
+    "/images/academy_banner.png"
 ];
 
 export default function Hero() {
@@ -33,7 +30,7 @@ export default function Hero() {
                 >
                     <Image
                         src={src}
-                        alt="미다움: 공간에 머무는 아름다움"
+                        alt="주식회사 미다움: 학원·병원 상업인테리어 전문"
                         fill
                         priority={index === 0}
                         className={styles.bgImage}
@@ -42,9 +39,9 @@ export default function Hero() {
             ))}
             <div className={styles.overlay}></div>
             <div className={styles.content}>
-                <h1 className="sr-only">미다움디자인 - 인천·김포·강서구 프리미엄 인테리어</h1>
-                <p className={`${styles.title} text-h1`}>아름다움, 공간에 담다</p>
-                <p className={styles.subtitle}>미다움 디자인</p>
+                <h1 className="sr-only">주식회사 미다움 - 학원·병원 등 상업공간 전문 인테리어</h1>
+                <p className={`${styles.title} text-h1`}>성공을 짓는 상업공간 디자인</p>
+                <p className={styles.subtitle}>학원·병원 인테리어 전문, (주)미다움</p>
                 <div className={styles.mobileLinks}>
                     <Link href="/project" className={styles.mobileLink}>
                         <Grid size={16} />
