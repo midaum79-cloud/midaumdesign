@@ -7,8 +7,10 @@ import Link from "next/link";
 import { Grid, BookOpen, Camera, Youtube } from "lucide-react";
 
 const images = [
-    "/images/clinic_banner.png",
-    "/images/academy_banner.png"
+    { src: "/images/academy_hero_new.png", type: "bg" },
+    { src: "/images/clinic_hero_new.png", type: "bg" },
+    { src: "/images/living_room_hero_new.png", type: "bg" },
+    { src: "/images/company_office_hero.png", type: "bg-with-logo" }
 ];
 
 export default function Hero() {
@@ -23,25 +25,36 @@ export default function Hero() {
 
     return (
         <section className={styles.hero}>
-            {images.map((src, index) => (
+            {images.map((item, index) => (
                 <div
-                    key={src}
+                    key={item.src}
                     className={`${styles.imageWrapper} ${index === currentImage ? styles.active : ''}`}
                 >
                     <Image
-                        src={src}
-                        alt="주식회사 미다움: 학원·병원 상업인테리어 전문"
+                        src={item.src}
+                        alt="주식회사 미다움"
                         fill
                         priority={index === 0}
                         className={styles.bgImage}
                     />
+                    {item.type === "bg-with-logo" && (
+                        <div className={styles.logoOverlay}>
+                            <Image 
+                                src="/images/midaum_logo_transparent.png" 
+                                alt="Midaum Design Logo" 
+                                width={600} 
+                                height={200} 
+                                className={styles.centerLogo}
+                            />
+                        </div>
+                    )}
                 </div>
             ))}
             <div className={styles.overlay}></div>
-            <div className={styles.content}>
-                <h1 className="sr-only">주식회사 미다움 - 학원·병원 등 상업공간 전문 인테리어</h1>
-                <p className={`${styles.title} text-h1`}>성공을 짓는 상업공간 디자인</p>
-                <p className={styles.subtitle}>학원·병원 인테리어 전문, (주)미다움</p>
+            <div className={`${styles.content} ${currentImage === 3 ? styles.hiddenContent : ''}`}>
+                <h1 className="sr-only">주식회사 미다움 - 상업공간 및 주거공간 전문 인테리어</h1>
+                <p className={`${styles.title} text-h1`}>품격을 높이는 상업 &middot; 주거공간 디자인</p>
+                <p className={styles.subtitle}>프리미엄 인테리어 전문, (주)미다움</p>
                 <div className={styles.mobileLinks}>
                     <Link href="/project" className={styles.mobileLink}>
                         <Grid size={16} />

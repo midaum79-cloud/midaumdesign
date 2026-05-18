@@ -9,15 +9,15 @@ import MobileBottomBar from "@/components/MobileBottomBar/MobileBottomBar";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.midaum.co.kr"),
   title: {
-    default: "주식회사 미다움 | 학원·병원 프리미엄 상업인테리어",
+    default: "주식회사 미다움 | 상업 및 주거공간 프리미엄 인테리어",
     template: "%s | 주식회사 미다움",
   },
-  description: "학원, 병원 등 상업공간 전문 인테리어 디자인 회사 주식회사 미다움입니다. 성공적인 비즈니스를 위한 미니멀하고 고급스러운 공간 설계 및 시공. 무료 상담 신청 가능.",
+  description: "학원, 병원 등 상업공간 및 프리미엄 주거공간 전문 인테리어 디자인 회사 주식회사 미다움입니다. 품격을 높이는 미니멀하고 고급스러운 공간 설계 및 시공. 무료 상담 신청 가능.",
   keywords: [
-    "상업인테리어", "학원인테리어", "병원인테리어", "의원인테리어",
+    "상업인테리어", "주거인테리어", "아파트인테리어", "학원인테리어", "병원인테리어", "의원인테리어",
     "미다움디자인", "미다움 디자인", "미다움", "주식회사 미다움", 
     "인천 인테리어", "김포 인테리어", "강서구 인테리어", 
-    "프리미엄 인테리어", "미니멀 인테리어", "상공간 인테리어", 
+    "프리미엄 인테리어", "미니멀 인테리어", "상공간 인테리어", "주거공간 인테리어",
     "인테리어 디자인", "공간 디자인", "Midaum Design"
   ],
   authors: [{ name: "김명준", url: "https://www.midaum.co.kr" }],
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     url: "https://www.midaum.co.kr",
     siteName: "주식회사 미다움",
-    title: "주식회사 미다움 | 학원·병원 프리미엄 상업인테리어",
-    description: "학원, 병원 등 상업공간 전문 인테리어 디자인 업체. 성공적인 비즈니스를 위한 고급스러운 설계 및 시공.",
+    title: "주식회사 미다움 | 상업 및 주거공간 프리미엄 인테리어",
+    description: "상업공간 및 주거공간 전문 인테리어 디자인 업체. 품격을 높이는 고급스러운 설계 및 시공.",
     images: [
       {
         url: "/images/clinic_banner.png",
@@ -45,8 +45,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "주식회사 미다움 | 학원·병원 프리미엄 상업인테리어",
-    description: "학원, 병원 등 상업공간 전문 인테리어 디자인 업체. 성공적인 비즈니스를 위한 고급스러운 설계 및 시공.",
+    title: "주식회사 미다움 | 상업 및 주거공간 프리미엄 인테리어",
+    description: "상업공간 및 주거공간 전문 인테리어 디자인 업체. 품격을 높이는 고급스러운 설계 및 시공.",
     images: ["/images/living_room_hero.png"],
   },
   robots: {
@@ -79,15 +79,15 @@ const localBusinessSchema = {
   "email": "midaum79@naver.com",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "김포한강9로75번길 66, 5층 505-유93호",
-    "addressLocality": "김포시",
-    "addressRegion": "경기도",
+    "streetAddress": "봉오대로 460 2층 202호 (효성동)",
+    "addressLocality": "계양구",
+    "addressRegion": "인천시",
     "addressCountry": "KR"
   },
   "areaServed": ["인천광역시", "김포시", "서울 강서구", "서울 은평구"],
   "priceRange": "₩₩₩",
   "openingHours": "Mo-Sa 09:00-18:00",
-  "hasMap": "https://www.google.com/maps/search/경기도+김포시+김포한강9로75번길+66",
+  "hasMap": "https://www.google.com/maps/search/인천시+계양구+봉오대로+460",
 };
 
 export default function RootLayout({

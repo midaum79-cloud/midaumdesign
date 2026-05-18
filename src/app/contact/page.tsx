@@ -2,7 +2,7 @@ import Contact from "@/components/Contact/Contact";
 
 export const metadata = {
     title: "Contact | 미다움 디자인",
-    description: "미다움 디자인 찾아오시는 길 및 연락처 안내. 인천 계양구 아나지로 위치.",
+    description: "미다움 디자인 찾아오시는 길 및 연락처 안내. 인천 계양구 봉오대로 위치.",
     openGraph: {
         title: "Contact | 미다움 디자인",
         description: "미다움 디자인 찾아오시는 길 및 연락처 안내",
