@@ -68,7 +68,7 @@ export default function Hero() {
                         <Camera size={16} />
                         <span>인스타그램</span>
                     </a>
-                    <a href="https://www.youtube.com/@CarpenterUncle" target="_blank" rel="noopener noreferrer" className={styles.mobileLink}>
+                    <a href="https://www.youtube.com/@미다움디자인" target="_blank" rel="noopener noreferrer" className={styles.mobileLink}>
                         <Youtube size={16} />
                         <span>유튜브</span>
                     </a>
