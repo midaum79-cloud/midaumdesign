@@ -2,11 +2,11 @@ import { getAllProjects } from "@/lib/portfolioLoader";
 import PortfolioGrid from "@/components/Portfolio/PortfolioGrid";
 
 export const metadata = {
-    title: "Portfolio | 미다움 디자인",
-    description: "인천, 김포, 강서구 인테리어 전문 미다움 디자인의 프리미엄 주거/상업 공간 인테리어 포트폴리오를 확인해보세요.",
+    title: "포트폴리오 | 아파트 및 상공간 프리미엄 인테리어 | 미다움 디자인",
+    description: "인천, 김포, 강서구 인테리어 전문 미다움 디자인의 프리미엄 주거(아파트, 빌라, 단독주택) 및 상업 공간 인테리어 시공 포트폴리오를 확인해보세요.",
     openGraph: {
-        title: "Portfolio | 미다움 디자인",
-        description: "인천, 김포, 강서구 인테리어 전문 미다움 디자인의 프리미엄 주거/상업 공간 인테리어 포트폴리오",
+        title: "포트폴리오 | 아파트 및 상공간 프리미엄 인테리어 | 미다움 디자인",
+        description: "프리미엄 주거(아파트, 빌라, 단독주택) 및 상업 공간 인테리어 시공 포트폴리오",
         url: "https://www.midaum.co.kr/project",
     },
     alternates: {

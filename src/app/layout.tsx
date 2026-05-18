@@ -12,11 +12,12 @@ export const metadata: Metadata = {
     default: "주식회사 미다움 | 상업 및 주거공간 프리미엄 인테리어",
     template: "%s | 주식회사 미다움",
   },
-  description: "학원, 병원 등 상업공간 및 프리미엄 주거공간 전문 인테리어 디자인 회사 주식회사 미다움입니다. 품격을 높이는 미니멀하고 고급스러운 공간 설계 및 시공. 무료 상담 신청 가능.",
+  description: "아파트, 단독주택 등 프리미엄 주거공간 및 학원, 병원, 상가 등 상업공간 전문 인테리어 디자인 회사 주식회사 미다움입니다. 품격을 높이는 미니멀하고 고급스러운 공간 설계 및 시공. 무료 상담 신청 가능.",
   keywords: [
-    "상업인테리어", "주거인테리어", "아파트인테리어", "학원인테리어", "병원인테리어", "의원인테리어",
+    "주거인테리어", "상업인테리어", "아파트인테리어", "아파트 리모델링", "단독주택 리모델링", "빌라 인테리어",
+    "거실 인테리어", "학원인테리어", "병원인테리어", "의원인테리어", "상가 인테리어", "미용실 인테리어",
     "미다움디자인", "미다움 디자인", "미다움", "주식회사 미다움", 
-    "인천 인테리어", "김포 인테리어", "강서구 인테리어", 
+    "인천 인테리어", "김포 인테리어", "서울 강서구 인테리어", "서울 은평구 인테리어",
     "프리미엄 인테리어", "미니멀 인테리어", "상공간 인테리어", "주거공간 인테리어",
     "인테리어 디자인", "공간 디자인", "Midaum Design"
   ],
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     url: "https://www.midaum.co.kr",
     siteName: "주식회사 미다움",
     title: "주식회사 미다움 | 상업 및 주거공간 프리미엄 인테리어",
-    description: "상업공간 및 주거공간 전문 인테리어 디자인 업체. 품격을 높이는 고급스러운 설계 및 시공.",
+    description: "아파트, 주택 등 주거공간과 상업공간 전문 프리미엄 인테리어 디자인 업체. 품격을 높이는 고급스러운 설계 및 시공.",
     images: [
       {
         url: "/images/clinic_banner.png",
@@ -46,8 +47,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "주식회사 미다움 | 상업 및 주거공간 프리미엄 인테리어",
-    description: "상업공간 및 주거공간 전문 인테리어 디자인 업체. 품격을 높이는 고급스러운 설계 및 시공.",
-    images: ["/images/living_room_hero.png"],
+    description: "아파트, 주택 등 주거공간과 상업공간 전문 프리미엄 인테리어 디자인 업체. 품격을 높이는 고급스러운 설계 및 시공.",
+    images: ["/images/living_room_hero_new.png"],
   },
   robots: {
     index: true,
@@ -73,8 +74,8 @@ const localBusinessSchema = {
   "name": "미다움디자인",
   "alternateName": ["미다움 디자인", "미다움", "Midaum Design"],
   "url": "https://www.midaum.co.kr",
-  "logo": "https://www.midaum.co.kr/images/living_room_hero.png",
-  "description": "인천·김포·서울 강서구 전문 인테리어 디자인 업체. 고급스러운 미니멀 공간 설계 및 시공.",
+  "logo": "https://www.midaum.co.kr/images/living_room_hero_new.png",
+  "description": "인천·김포·서울 전문 인테리어 디자인 업체. 아파트 리모델링 등 프리미엄 주거 및 상업 공간 미니멀 설계/시공.",
   "telephone": "+82-10-5685-0850",
   "email": "midaum79@naver.com",
   "address": {
