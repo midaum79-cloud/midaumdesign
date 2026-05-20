@@ -109,21 +109,31 @@ export async function POST(req: NextRequest) {
             </div>
         `;
 
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
+    let emailSuccess = false;
+    let telegramSuccess = false;
+    const errors: string[] = [];
 
-    await transporter.sendMail({
-      from: `"미다움 디자인 홈페이지" <${process.env.EMAIL_USER}>`,
-      to: "midaum79@gmail.com",
-      subject,
-      html,
-      replyTo: `${name} <noreply@midaumdesign.com>`,
-    });
+    try {
+      const transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_PASS,
+        },
+      });
+
+      await transporter.sendMail({
+        from: `"미다움 디자인 홈페이지" <${process.env.EMAIL_USER}>`,
+        to: "midaum79@gmail.com",
+        subject,
+        html,
+        replyTo: `${name} <noreply@midaumdesign.com>`,
+      });
+      emailSuccess = true;
+    } catch (emailError) {
+      console.error("Email send error:", emailError);
+      errors.push(`Email Error: ${emailError instanceof Error ? emailError.message : String(emailError)}`);
+    }
 
     // Telegram 알림 전송 로직
     const telegramToken = process.env.TELEGRAM_BOT_TOKEN;
@@ -152,7 +162,7 @@ export async function POST(req: NextRequest) {
       }
 
       try {
-        await fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
+        const tgResponse = await fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -162,17 +172,29 @@ export async function POST(req: NextRequest) {
             text: telegramMessage,
           }),
         });
+
+        if (!tgResponse.ok) {
+           const tgErrorData = await tgResponse.text();
+           throw new Error(`Telegram API responded with ${tgResponse.status}: ${tgErrorData}`);
+        }
+        telegramSuccess = true;
       } catch (tgError) {
         console.error("Telegram send error:", tgError);
-        // 텔레그램 전송 실패해도 이메일은 갔으므로 전체를 실패처리하지는 않음
+        errors.push(`Telegram Error: ${tgError instanceof Error ? tgError.message : String(tgError)}`);
       }
+    } else {
+        errors.push("Telegram Token or Chat ID not configured");
     }
 
-    return NextResponse.json({ success: true });
+    if (!emailSuccess && !telegramSuccess) {
+        return NextResponse.json({ error: "견적 전송 실패 (이메일 및 텔레그램 모두 실패)", details: errors.join(" / ") }, { status: 500 });
+    }
+
+    return NextResponse.json({ success: true, emailSuccess, telegramSuccess, errors: errors.length > 0 ? errors : undefined });
   } catch (error) {
-    console.error("Estimate Error:", error);
+    console.error("Estimate Route Error:", error);
     const errorMessage = error instanceof Error ? error.message : String(error);
-    return NextResponse.json({ error: "견적 전송 실패", details: errorMessage }, { status: 500 });
+    return NextResponse.json({ error: "견적 전송 중 오류 발생", details: errorMessage }, { status: 500 });
   }
 }
 
