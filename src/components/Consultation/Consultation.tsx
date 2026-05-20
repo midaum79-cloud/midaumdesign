@@ -118,10 +118,12 @@ export default function Consultation() {
             if (res.ok) {
                 setSubmitted(true);
             } else {
-                alert("전송에 실패했습니다. 다시 시도해 주세요.");
+                const errorData = await res.json().catch(() => ({}));
+                alert(`전송에 실패했습니다. 다시 시도해 주세요.\n(에러 상세: ${errorData.details || errorData.error || res.statusText})`);
             }
-        } catch {
-            alert("네트워크 오류가 발생했습니다.");
+        } catch (error) {
+            const errorMessage = error instanceof Error ? error.message : String(error);
+            alert(`네트워크 오류가 발생했습니다.\n(에러 상세: ${errorMessage})`);
         } finally {
             setSending(false);
         }
