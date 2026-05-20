@@ -125,9 +125,53 @@ export async function POST(req: NextRequest) {
       replyTo: `${name} <noreply@midaumdesign.com>`,
     });
 
+    // Telegram 알림 전송 로직
+    const telegramToken = process.env.TELEGRAM_BOT_TOKEN;
+    const telegramChatId = process.env.TELEGRAM_CHAT_ID;
+
+    if (telegramToken && telegramChatId) {
+      let telegramMessage = `📋 [새로운 견적 문의]\n\n`;
+      telegramMessage += `👤 이름: ${name}\n`;
+      telegramMessage += `📞 연락처: ${phone}\n`;
+      telegramMessage += `🏠 주소: ${address}\n`;
+      telegramMessage += `🏢 구분: ${spaceCategory === 'residential' ? '주거공간' : '상업공간'} (${spaceLabels[spaceType] || spaceType})\n`;
+      telegramMessage += `📏 평수: ${sizeLabels[size] || size}\n`;
+      telegramMessage += `💰 예산: ${budgetLabels[budget] || budget}\n`;
+      telegramMessage += `📅 희망일: ${moveDate || "미정"}\n`;
+
+      if (spaceCategory === "residential") {
+        telegramMessage += `\n✨ [주거 세부정보]\n`;
+        telegramMessage += `- 시공범위: ${constructionScopeLabels[constructionScope] || "선택 안함"}\n`;
+        telegramMessage += `- 선호스타일: ${preferredStyleLabels[preferredStyle] || "선택 안함"}\n`;
+        const details = detailWork?.length ? detailWork.map((w: string) => detailWorkLabels[w]).join(", ") : "선택 안함";
+        telegramMessage += `- 주요항목: ${details}\n`;
+      }
+
+      if (message) {
+        telegramMessage += `\n💬 추가요청:\n${message}\n`;
+      }
+
+      try {
+        await fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            chat_id: telegramChatId,
+            text: telegramMessage,
+          }),
+        });
+      } catch (tgError) {
+        console.error("Telegram send error:", tgError);
+        // 텔레그램 전송 실패해도 이메일은 갔으므로 전체를 실패처리하지는 않음
+      }
+    }
+
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Email send error:", error);
     return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
   }
 }
+
