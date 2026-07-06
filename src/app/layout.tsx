@@ -14,11 +14,11 @@ export const metadata: Metadata = {
   },
   description: "학원, 사무실 등 오피스 및 교육공간 전문 인테리어 디자인 회사 목수삼촌 실내건축입니다. 품격을 높이는 미니멀하고 고급스러운 공간 설계 및 시공. 무료 상담 신청 가능.",
   keywords: [
+    "목수삼촌", "목수삼촌 실내건축", "Carpenter Uncle",
     "학원인테리어", "사무실인테리어", "오피스인테리어", "상업인테리어", "상가인테리어", 
-    "목수삼촌 실내건축", "목수삼촌 실내건축", "목수삼촌", "목수삼촌 실내건축", 
     "인천 인테리어", "김포 인테리어", "서울 강서구 인테리어", "서울 은평구 인테리어",
     "프리미엄 인테리어", "미니멀 인테리어", "상공간 인테리어", "교육공간 인테리어",
-    "인테리어 디자인", "공간 디자인", "목수삼촌 실내건축"
+    "인테리어 디자인", "공간 디자인"
   ],
   authors: [{ name: "김명준", url: "https://www.midaum.co.kr" }],
   creator: "목수삼촌 실내건축",
@@ -71,7 +71,7 @@ const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "InteriorDesigner",
   "name": "목수삼촌 실내건축",
-  "alternateName": ["목수삼촌 실내건축", "목수삼촌", "목수삼촌 실내건축"],
+  "alternateName": ["목수삼촌", "Carpenter Uncle", "Carpenter Uncle Interior"],
   "url": "https://www.midaum.co.kr",
   "logo": "https://www.midaum.co.kr/images/midaum_logo_transparent.png",
   "description": "인천·김포·서울 전문 인테리어 디자인 업체. 학원 및 사무실 등 프리미엄 상업 공간 미니멀 설계/시공.",
