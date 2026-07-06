@@ -38,11 +38,12 @@ export default function Hero() {
                     {item.type === "bg-with-logo" && (
                         <div className={styles.logoOverlay}>
                             <Image 
-                                src="/images/logo.png" 
+                                src="/images/logo_horizontal.png" 
                                 alt="목수삼촌 실내건축 Logo" 
                                 width={600} 
-                                height={600} 
+                                height={200} 
                                 className={styles.centerLogo}
+                                style={{ objectFit: 'contain' }}
                             />
                         </div>
                     )}
