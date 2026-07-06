@@ -5,6 +5,7 @@ import styles from "./Hero.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { Grid, BookOpen, Camera, Youtube } from "lucide-react";
+import Logo from "../Logo/Logo";
 
 const images = [
     { src: "/images/company_office_hero.png", type: "bg-with-logo" },
@@ -37,14 +38,7 @@ export default function Hero() {
                     />
                     {item.type === "bg-with-logo" && (
                         <div className={styles.logoOverlay}>
-                            <Image 
-                                src="/images/logo_horizontal.png" 
-                                alt="목수삼촌 실내건축 Logo" 
-                                width={600} 
-                                height={200} 
-                                className={styles.centerLogo}
-                                style={{ objectFit: 'contain' }}
-                            />
+                            <Logo variant="vertical" width={400} height={480} className={styles.centerLogo} />
                         </div>
                     )}
                 </div>
