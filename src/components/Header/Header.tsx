@@ -36,12 +36,13 @@ export default function Header() {
             <nav className={styles.nav}>
                 <Link href="/" className={styles.logo}>
                     <Image
-                        src="/images/logo.png"
+                        src="/images/logo_horizontal.png"
                         alt="목수삼촌 실내건축 로고"
                         width={240}
-                        height={62}
+                        height={80}
                         priority
                         className={styles.logoImg}
+                        style={{ objectFit: 'contain' }}
                     />
                 </Link>
                 <ul className={styles.menuList}>
