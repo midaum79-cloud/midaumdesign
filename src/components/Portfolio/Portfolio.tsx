@@ -40,7 +40,7 @@ export default function Portfolio() {
             <div className={`container ${styles.header}`}>
                 <h2 className="text-h2">Selected Works</h2>
                 <p className={`text-body ${styles.desc}`}>
-                    단순함 속에 깃든 깊이, 미다움의 시공사례를 확인하세요.
+                    단순함 속에 깃든 깊이, 목수삼촌의 시공사례를 확인하세요.
                 </p>
             </div>
 

@@ -9,7 +9,7 @@ export default function Contact() {
             <div className={styles.container}>
                 <div className={styles.header}>
                     <h2 className={styles.title}>Location</h2>
-                    <p className={styles.subtitle}>미다움 디자인 오시는 길 안내입니다.</p>
+                    <p className={styles.subtitle}>목수삼촌 실내건축 오시는 길 안내입니다.</p>
                 </div>
 
                 <div className={styles.content}>

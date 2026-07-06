@@ -13,12 +13,12 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 
     if (!project) {
         return {
-            title: "Project Not Found | 미다움 디자인",
+            title: "Project Not Found | 목수삼촌 실내건축",
         };
     }
 
-    const title = `${project.title} | 미다움 디자인 포트폴리오`;
-    const description = project.description || `미다움 디자인의 ${project.title} 인테리어 시공 사례입니다.`;
+    const title = `${project.title} | 목수삼촌 실내건축 포트폴리오`;
+    const description = project.description || `목수삼촌 실내건축의 ${project.title} 인테리어 시공 사례입니다.`;
 
     return {
         title,

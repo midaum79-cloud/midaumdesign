@@ -28,7 +28,7 @@ export default function NoticeBoard({ notices }: { notices: NoticeInfo[] }) {
             <div className={styles.container}>
                 <div className={styles.header}>
                     <h2 className={styles.title}>Notice</h2>
-                    <p className={styles.subtitle}>미다움 디자인의 새로운 소식과 공지사항을 알려드립니다.</p>
+                    <p className={styles.subtitle}>목수삼촌 실내건축의 새로운 소식과 공지사항을 알려드립니다.</p>
                 </div>
 
                 <div className={styles.board}>

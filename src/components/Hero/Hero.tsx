@@ -5,12 +5,11 @@ import styles from "./Hero.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { Grid, BookOpen, Camera, Youtube } from "lucide-react";
+import Logo from "../Logo/Logo";
 
 const images = [
-    { src: "/images/academy_hero_new.png", type: "bg" },
-    { src: "/images/clinic_hero_new.png", type: "bg" },
-    { src: "/images/living_room_hero_new.png", type: "bg" },
-    { src: "/images/company_office_hero.png", type: "bg-with-logo" }
+    { src: "/images/company_office_hero.png", type: "bg-with-logo" },
+    { src: "/images/academy_hero_new.png", type: "bg" }
 ];
 
 export default function Hero() {
@@ -32,29 +31,23 @@ export default function Hero() {
                 >
                     <Image
                         src={item.src}
-                        alt="주식회사 미다움"
+                        alt="목수삼촌 실내건축"
                         fill
                         priority={index === 0}
                         className={styles.bgImage}
                     />
                     {item.type === "bg-with-logo" && (
                         <div className={styles.logoOverlay}>
-                            <Image 
-                                src="/images/midaum_logo_transparent.png" 
-                                alt="Midaum Design Logo" 
-                                width={600} 
-                                height={200} 
-                                className={styles.centerLogo}
-                            />
+                                <Logo variant="vertical" width={400} height={480} className={styles.centerLogo} />
                         </div>
                     )}
                 </div>
             ))}
             <div className={styles.overlay}></div>
-            <div className={`${styles.content} ${currentImage === 3 ? styles.hiddenContent : ''}`}>
-                <h1 className="sr-only">주식회사 미다움 - 상업공간 및 주거공간 전문 인테리어</h1>
-                <p className={`${styles.title} text-h1`}>품격을 높이는 상업 &middot; 주거공간 디자인</p>
-                <p className={styles.subtitle}>프리미엄 인테리어 전문, (주)미다움</p>
+            <div className={`${styles.content} ${currentImage === 0 ? styles.hiddenContent : ''}`}>
+                <h1 className="sr-only">목수삼촌 실내건축 - 학원 및 사무실 전문 인테리어</h1>
+                <p className={`${styles.title} text-h1`}>성공적인 비즈니스를 위한 학원 &middot; 사무실 디자인</p>
+                <p className={styles.subtitle}>프리미엄 오피스 & 교육공간 인테리어 전문, (주)목수삼촌</p>
                 <div className={styles.mobileLinks}>
                     <Link href="/project" className={styles.mobileLink}>
                         <Grid size={16} />
@@ -68,7 +61,7 @@ export default function Hero() {
                         <Camera size={16} />
                         <span>인스타그램</span>
                     </a>
-                    <a href="https://www.youtube.com/@미다움디자인" target="_blank" rel="noopener noreferrer" className={styles.mobileLink}>
+                    <a href="https://www.youtube.com/@목수삼촌 실내건축" target="_blank" rel="noopener noreferrer" className={styles.mobileLink}>
                         <Youtube size={16} />
                         <span>유튜브</span>
                     </a>

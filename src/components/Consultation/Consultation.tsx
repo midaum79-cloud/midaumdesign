@@ -4,22 +4,10 @@ import { useState } from "react";
 import styles from "./Consultation.module.css";
 
 const commercialSpaceTypes = [
-    { value: "store", label: "상가 인테리어" },
-    { value: "salon", label: "미용실/뷰티샵" },
     { value: "academy", label: "학원/교육시설" },
-    { value: "hospital", label: "병원/의원" },
     { value: "office", label: "사무실/오피스" },
-    { value: "cafe", label: "카페/음식점" },
     { value: "other_com", label: "기타 상업공간" },
 ];
-
-const residentialSpaceTypes = [
-    { value: "apartment", label: "아파트 리모델링" },
-    { value: "villa", label: "빌라/다세대" },
-    { value: "house", label: "주택/단독주택" },
-    { value: "other_res", label: "기타 주거공간" },
-];
-
 
 const sizeOptions = [
     { value: "under-20", label: "20평 미만" },
@@ -78,18 +66,7 @@ export default function Consultation() {
     });
     const [submitted, setSubmitted] = useState(false);
     const [sending, setSending] = useState(false);
-    const [spaceCategory, setSpaceCategory] = useState<"commercial" | "residential">("commercial");
 
-    const handleCategoryChange = (category: "commercial" | "residential") => {
-        setSpaceCategory(category);
-        setFormData((prev) => ({ 
-            ...prev, 
-            spaceType: "", 
-            constructionScope: "", 
-            preferredStyle: "", 
-            detailWork: [] 
-        }));
-    };
 
     const handleChange = (field: string, value: string | string[]) => {
         setFormData((prev) => ({ ...prev, [field]: value }));
@@ -112,7 +89,7 @@ export default function Consultation() {
             const res = await fetch("/api/estimate", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ ...formData, spaceCategory }),
+                body: JSON.stringify({ ...formData, spaceCategory: "commercial" }),
             });
 
             if (res.ok) {
@@ -151,34 +128,17 @@ export default function Consultation() {
                 <div className={styles.formSection}>
                     <h2 className={`text-h2 ${styles.title}`}>견적 문의</h2>
                     <p className={`text-body ${styles.desc}`}>
-                        아래 항목을 선택/입력해 주시면, 미다움 전문가가 맞춤 견적을 안내해 드립니다.
+                        아래 항목을 선택/입력해 주시면, 목수삼촌 전문가가 맞춤 견적을 안내해 드립니다.
                     </p>
 
                     <form className={styles.form} onSubmit={handleSubmit}>
-                        <div className={styles.tabs}>
-                            <button
-                                type="button"
-                                className={`${styles.tab} ${spaceCategory === "commercial" ? styles.active : ""}`}
-                                onClick={() => handleCategoryChange("commercial")}
-                            >
-                                상업공간
-                            </button>
-                            <button
-                                type="button"
-                                className={`${styles.tab} ${spaceCategory === "residential" ? styles.active : ""}`}
-                                onClick={() => handleCategoryChange("residential")}
-                            >
-                                주거공간
-                            </button>
-                        </div>
-
                         {/* 공간 유형 */}
                         <div className={styles.radioSection}>
                             <label className={styles.sectionLabel}>
-                                {spaceCategory === "commercial" ? "상업공간 유형" : "주거공간 유형"}
+                                공간 유형
                             </label>
                             <div className={styles.radioGrid}>
-                                {(spaceCategory === "commercial" ? commercialSpaceTypes : residentialSpaceTypes).map((type) => (
+                                {commercialSpaceTypes.map((type) => (
                                     <label key={type.value} className={`${styles.radioLabel} ${formData.spaceType === type.value ? styles.radioSelected : ""}`}>
                                         <input
                                             type="radio"
@@ -234,78 +194,7 @@ export default function Consultation() {
                             </div>
                         </div>
 
-                        {/* 주거공간 세부 항목 (주거공간 선택 시에만 표시) */}
-                        {spaceCategory === "residential" && (
-                            <div className={styles.detailedSection}>
-                                <div className={styles.detailTitleWrapper}>
-                                    <h3 className={styles.detailTitle}>주거공간 세부 옵션</h3>
-                                    <span className={styles.detailBadge}>선택사항</span>
-                                </div>
-                                <p className={styles.detailDesc}>원하시는 시공 방향을 선택해주시면 더 정확한 상담이 가능합니다.</p>
-                                
-                                <div className={styles.detailGrid}>
-                                    {/* 시공 범위 */}
-                                    <div className={styles.radioSection}>
-                                        <label className={styles.sectionSubLabel}>시공 범위</label>
-                                        <div className={styles.radioGrid}>
-                                            {constructionScopes.map((scope) => (
-                                                <label key={scope.value} className={`${styles.radioLabel} ${formData.constructionScope === scope.value ? styles.radioSelected : ""}`}>
-                                                    <input
-                                                        type="radio"
-                                                        name="constructionScope"
-                                                        value={scope.value}
-                                                        checked={formData.constructionScope === scope.value}
-                                                        onChange={(e) => handleChange("constructionScope", e.target.value)}
-                                                        className={styles.radioInput}
-                                                    />
-                                                    <span>{scope.label}</span>
-                                                </label>
-                                            ))}
-                                        </div>
-                                    </div>
 
-                                    {/* 선호 스타일 */}
-                                    <div className={styles.radioSection}>
-                                        <label className={styles.sectionSubLabel}>선호 스타일</label>
-                                        <div className={styles.radioGrid}>
-                                            {preferredStyles.map((style) => (
-                                                <label key={style.value} className={`${styles.radioLabel} ${formData.preferredStyle === style.value ? styles.radioSelected : ""}`}>
-                                                    <input
-                                                        type="radio"
-                                                        name="preferredStyle"
-                                                        value={style.value}
-                                                        checked={formData.preferredStyle === style.value}
-                                                        onChange={(e) => handleChange("preferredStyle", e.target.value)}
-                                                        className={styles.radioInput}
-                                                    />
-                                                    <span>{style.label}</span>
-                                                </label>
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    {/* 주요 시공 항목 (다중 선택) */}
-                                    <div className={styles.radioSection}>
-                                        <label className={styles.sectionSubLabel}>주요 시공 항목 (다중 선택 가능)</label>
-                                        <div className={styles.checkboxGrid}>
-                                            {detailWorkOptions.map((work) => (
-                                                <label key={work.value} className={`${styles.checkboxLabel} ${formData.detailWork.includes(work.value) ? styles.checkboxSelected : ""}`}>
-                                                    <input
-                                                        type="checkbox"
-                                                        name="detailWork"
-                                                        value={work.value}
-                                                        checked={formData.detailWork.includes(work.value)}
-                                                        onChange={() => handleDetailToggle(work.value)}
-                                                        className={styles.radioInput}
-                                                    />
-                                                    <span>{work.label}</span>
-                                                </label>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
 
                         {/* 텍스트 입력 필드 */}
                         <div className={styles.customerInfoSection}>

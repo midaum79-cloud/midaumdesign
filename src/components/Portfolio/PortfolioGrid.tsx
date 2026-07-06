@@ -16,12 +16,12 @@ interface ProjectInfo {
     imageCount: number;
 }
 
-type CategoryFilter = "all" | "residential" | "commercial";
+type CategoryFilter = "all" | "academy" | "office";
 
 const CATEGORIES: { key: CategoryFilter; label: string }[] = [
     { key: "all", label: "전체" },
-    { key: "residential", label: "주거공간" },
-    { key: "commercial", label: "상업공간" },
+    { key: "academy", label: "학원/교육공간" },
+    { key: "office", label: "사무실/오피스" },
 ];
 
 const ITEMS_PER_PAGE = 12;
@@ -54,7 +54,7 @@ export default function PortfolioGrid({ projects }: { projects: ProjectInfo[] })
             <div className={`container ${styles.header}`}>
                 <h2 className="text-h2">Selected Works</h2>
                 <p className={`text-body ${styles.desc}`}>
-                    단순함 속에 깃든 깊이, 미다움의 시공사례를 확인하세요.
+                    단순함 속에 깃든 깊이, 목수삼촌의 시공사례를 확인하세요.
                 </p>
             </div>
 

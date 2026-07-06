@@ -6,6 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import styles from "./Header.module.css";
+import Logo from "../Logo/Logo";
 
 export default function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -34,14 +35,7 @@ export default function Header() {
         <header className={`${styles.header} ${styles.solid}`}>
             <nav className={styles.nav}>
                 <Link href="/" className={styles.logo}>
-                    <Image
-                        src="/images/midaum_logo_transparent.png"
-                        alt="미다움 디자인 로고"
-                        width={240}
-                        height={62}
-                        priority
-                        className={styles.logoImg}
-                    />
+                    <Logo variant="horizontal" width={240} height={62} className={styles.logoImg} />
                 </Link>
                 <ul className={styles.menuList}>
                     <li><Link href="/about" className={`${styles.menuItem} ${pathname === '/about' ? styles.active : ''}`}>About</Link></li>

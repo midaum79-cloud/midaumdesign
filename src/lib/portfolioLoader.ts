@@ -52,7 +52,7 @@ export function getAllProjects(): ProjectInfo[] {
                 return null;
             }
         })
-        .filter(Boolean) as ProjectInfo[];
+        .filter((p) => p !== null && (p.category === "academy" || p.category === "office")) as ProjectInfo[];
 }
 
 /** Get a single project by ID */

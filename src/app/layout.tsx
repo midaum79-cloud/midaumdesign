@@ -9,21 +9,20 @@ import MobileBottomBar from "@/components/MobileBottomBar/MobileBottomBar";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.midaum.co.kr"),
   title: {
-    default: "주식회사 미다움 | 상업 및 주거공간 프리미엄 인테리어",
-    template: "%s | 주식회사 미다움",
+    default: "목수삼촌 실내건축 | 학원 및 사무실 프리미엄 인테리어",
+    template: "%s | 목수삼촌 실내건축",
   },
-  description: "아파트, 단독주택 등 프리미엄 주거공간 및 학원, 병원, 상가 등 상업공간 전문 인테리어 디자인 회사 주식회사 미다움입니다. 품격을 높이는 미니멀하고 고급스러운 공간 설계 및 시공. 무료 상담 신청 가능.",
+  description: "학원, 사무실 등 오피스 및 교육공간 전문 인테리어 디자인 회사 목수삼촌 실내건축입니다. 품격을 높이는 미니멀하고 고급스러운 공간 설계 및 시공. 무료 상담 신청 가능.",
   keywords: [
-    "주거인테리어", "상업인테리어", "아파트인테리어", "아파트 리모델링", "단독주택 리모델링", "빌라 인테리어",
-    "거실 인테리어", "학원인테리어", "병원인테리어", "의원인테리어", "상가 인테리어", "미용실 인테리어",
-    "미다움디자인", "미다움 디자인", "미다움", "주식회사 미다움", 
+    "학원인테리어", "사무실인테리어", "오피스인테리어", "상업인테리어", "상가인테리어", 
+    "목수삼촌 실내건축", "목수삼촌 실내건축", "목수삼촌", "목수삼촌 실내건축", 
     "인천 인테리어", "김포 인테리어", "서울 강서구 인테리어", "서울 은평구 인테리어",
-    "프리미엄 인테리어", "미니멀 인테리어", "상공간 인테리어", "주거공간 인테리어",
-    "인테리어 디자인", "공간 디자인", "Midaum Design"
+    "프리미엄 인테리어", "미니멀 인테리어", "상공간 인테리어", "교육공간 인테리어",
+    "인테리어 디자인", "공간 디자인", "목수삼촌 실내건축"
   ],
   authors: [{ name: "김명준", url: "https://www.midaum.co.kr" }],
-  creator: "주식회사 미다움",
-  publisher: "주식회사 미다움",
+  creator: "목수삼촌 실내건축",
+  publisher: "목수삼촌 실내건축",
   formatDetection: { telephone: true, email: true, address: true },
   alternates: {
     canonical: "https://www.midaum.co.kr",
@@ -32,23 +31,23 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ko_KR",
     url: "https://www.midaum.co.kr",
-    siteName: "주식회사 미다움",
-    title: "주식회사 미다움 | 상업 및 주거공간 프리미엄 인테리어",
-    description: "아파트, 주택 등 주거공간과 상업공간 전문 프리미엄 인테리어 디자인 업체. 품격을 높이는 고급스러운 설계 및 시공.",
+    siteName: "목수삼촌 실내건축",
+    title: "목수삼촌 실내건축 | 학원 및 사무실 프리미엄 인테리어",
+    description: "학원, 사무실 등 오피스 및 교육공간 전문 프리미엄 인테리어 디자인 업체. 품격을 높이는 고급스러운 설계 및 시공.",
     images: [
       {
-        url: "/images/clinic_banner.png",
+        url: "/images/company_office_hero.png",
         width: 1200,
         height: 630,
-        alt: "주식회사 미다움 - 성공을 짓는 상업공간 디자인",
+        alt: "목수삼촌 실내건축 - 성공을 짓는 학원 및 사무실 전문 상업공간 디자인",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "주식회사 미다움 | 상업 및 주거공간 프리미엄 인테리어",
-    description: "아파트, 주택 등 주거공간과 상업공간 전문 프리미엄 인테리어 디자인 업체. 품격을 높이는 고급스러운 설계 및 시공.",
-    images: ["/images/living_room_hero_new.png"],
+    title: "목수삼촌 실내건축 | 학원 및 사무실 프리미엄 인테리어",
+    description: "학원, 사무실 등 오피스 및 교육공간 전문 프리미엄 인테리어 디자인 업체. 품격을 높이는 고급스러운 설계 및 시공.",
+    images: ["/images/company_office_hero.png"],
   },
   robots: {
     index: true,
@@ -71,11 +70,11 @@ export const metadata: Metadata = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "InteriorDesigner",
-  "name": "미다움디자인",
-  "alternateName": ["미다움 디자인", "미다움", "Midaum Design"],
+  "name": "목수삼촌 실내건축",
+  "alternateName": ["목수삼촌 실내건축", "목수삼촌", "목수삼촌 실내건축"],
   "url": "https://www.midaum.co.kr",
-  "logo": "https://www.midaum.co.kr/images/living_room_hero_new.png",
-  "description": "인천·김포·서울 전문 인테리어 디자인 업체. 아파트 리모델링 등 프리미엄 주거 및 상업 공간 미니멀 설계/시공.",
+  "logo": "https://www.midaum.co.kr/images/midaum_logo_transparent.png",
+  "description": "인천·김포·서울 전문 인테리어 디자인 업체. 학원 및 사무실 등 프리미엄 상업 공간 미니멀 설계/시공.",
   "telephone": "+82-10-5685-0850",
   "email": "midaum79@naver.com",
   "address": {
