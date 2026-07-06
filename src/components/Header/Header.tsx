@@ -35,7 +35,14 @@ export default function Header() {
         <header className={`${styles.header} ${styles.solid}`}>
             <nav className={styles.nav}>
                 <Link href="/" className={styles.logo}>
-                    <Logo variant="horizontal" width={240} height={62} className={styles.logoImg} />
+                    <Image
+                        src="/images/logo.png"
+                        alt="목수삼촌 실내건축 로고"
+                        width={240}
+                        height={62}
+                        priority
+                        className={styles.logoImg}
+                    />
                 </Link>
                 <ul className={styles.menuList}>
                     <li><Link href="/about" className={`${styles.menuItem} ${pathname === '/about' ? styles.active : ''}`}>About</Link></li>
